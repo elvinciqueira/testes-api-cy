@@ -39,16 +39,16 @@ Cypress.Commands.add('token', (email, senha) => {
 
 Cypress.Commands.add(
   'cadastrarProduto',
-  (token, produto, preco, descricao, quantidade) => {
+  (bearerToken, { nome, preco, descricao, quantidade }) => {
     cy.request({
       method: 'POST',
       url: 'produtos',
-      headers: { authorization: token },
+      headers: { authorization: bearerToken },
       body: {
-        nome: produto,
-        preco: preco,
-        descricao: descricao,
-        quantidade: quantidade,
+        nome,
+        preco,
+        descricao,
+        quantidade,
       },
       failOnStatusCode: false,
     });
