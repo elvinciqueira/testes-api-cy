@@ -7,7 +7,7 @@ pipeline {
                 git branch: 'main' url: 'git@github.com:elvinciqueira/testes-api-cy.git'
             }
         }
-        stage('Install dependecies') {
+        stage('Install dependencies') {
             steps {
                 sh 'npm install'
             }
